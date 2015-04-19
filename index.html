@@ -1,68 +1,129 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Swiftsnails by Superjom</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Swiftsnails</h1>
-      <h2 class="project-tagline">一个适用于大规模机器学习的分布式参数服务器</h2>
-      <a href="https://github.com/Superjom/SwiftSnails" class="btn">View on GitHub</a>
-      <a href="https://github.com/Superjom/SwiftSnails/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/Superjom/SwiftSnails/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
 
-    <section class="main-content">
-      <h3>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Swiftsnails : 一个适用于大规模机器学习的分布式参数服务器">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Swiftsnails</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Superjom/SwiftSnails">View on GitHub</a>
+
+          <h1 id="project_title">Swiftsnails</h1>
+          <h2 id="project_tagline">一个适用于大规模机器学习的分布式参数服务器</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Superjom/SwiftSnails/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Superjom/SwiftSnails/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
 <a id="welcome-to-swiftsnails" class="anchor" href="#welcome-to-swiftsnails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to SwiftSnails.</h3>
 
 <p>SwiftSnails是一个分布式的参数服务器。 适用于一些参数结构比较固定的模型的分布式计算。
 比如Logistic Regression，或者FM，神经网络这类模型，使用参数服务器都是很容易作分布式环境迁移的。</p>
 
-<p>项目还处于初期快速迭代的阶段，我们实现了Word2Vec的分布式版本，后续会做一些性能优化，和多一点的Demo。</p>
+<p>SwiftSnails中包含了参数PULL和PUSH最简单的接口，用户应用可以通过调用和封装这些简单接口来实现具体的逻辑。
+项目还处于初期快速迭代的阶段，我们实现了Word2Vec的分布式版本作为Demo。</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>项目后续的发展方向是一些性能优化，和多一点的Demo。 </p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>欢迎有大神贡献代码，意见和建议。</p>
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>任何一个项目都是为一个场景而服务，目前SwiftSnails实验的锅比较小，所以身量有限，如果应用的多的话，肯定会慢慢丰满起来。</p>
 
 <h3>
-<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a id="项目介绍" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>项目介绍</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h2>
+<a id="目录" class="anchor" href="#%E7%9B%AE%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>目录</h2>
+
+<p>作为框架，SwiftSnail包含一些接口，当然代码量也比较少，即使全部看完，也比较容易。</p>
+
+<p>一些有用的目录如下：</p>
+
+<ul>
+<li>src : 项目源码</li>
+<li>src/core : 项目核心代码</li>
+<li>src/core/framework :框架模板（主要接口）</li>
+<li>src/core/utils: 框架的一些底层代码</li>
+<li>src/core/parameter: 有关参数的接口</li>
+<li>src/core/transfer: 消息传递的框架，用户基本用不到</li>
+<li>src/core/system: 参数服务器的内置逻辑，用户基本用不到</li>
+<li>src/apps: 一些demo的代码，目前有word2vec</li>
+<li>src/tools: 一些脚本工具，基本不能直接用，需要根据自己的环境修改</li>
+<li>src/unitest: 项目早期的一些单元测试</li>
+</ul>
+
+<h2>
+<a id="接口" class="anchor" href="#%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>接口</h2>
+
+<p>主要的接口包含在两个目录中：</p>
+
+<ul>
+<li>src/core/framework</li>
+<li>src/core/parameter</li>
+</ul>
+
+<p>实际使用可以参看Word2Vec的Demo。</p>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="实验" class="anchor" href="#%E5%AE%9E%E9%AA%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>实验</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>这里主要分享分布式的Word2vec的一些实验数据，后续会有多一些的实验</p>
+
+<ul>
+<li>数据： 66.8G  词库规模：41w</li>
+<li>window: 4</li>
+<li>noise: 20</li>
+<li>维度：100</li>
+<li>集群节点数：8</li>
+<li>单机线程数：14</li>
+<li>单机配置：16核+16G内存</li>
+<li>运行中平均消耗：worker %1150 CPU 7.7G内存（可以修改本地参数缓存来优化）    server %45 CPU 1.2G内存</li>
+<li>minibatch: 10000句</li>
+<li>AdaGrad, 初始学习率：0.5</li>
+<li>单轮迭代后词向量基本可用，单轮迭代3~4h</li>
+</ul>
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>交流方式：</p>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/Superjom/SwiftSnails">Swiftsnails</a> is maintained by <a href="https://github.com/Superjom">Superjom</a>.</span>
+<ul>
+<li>邮箱： yanchunwei{<a href="https://github.com/t" class="user-mention">@t</a>}outlook.com</li>
+<li>weibo: <a href="https://github.com/superjom" class="user-mention">@superjom</a>
+</li>
+<li>个人博客： <a href="http://superjom.duapp.com">http://superjom.duapp.com</a>
+</li>
+</ul>
+      </section>
+    </div>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Swiftsnails maintained by <a href="https://github.com/Superjom">Superjom</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
+    </div>
 
-    </section>
+    
 
-  
   </body>
 </html>
-
